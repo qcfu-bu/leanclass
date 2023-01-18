@@ -8,4 +8,5 @@ vscode:
 tasks:
   - init: |
       lake exe cache get
+    command: |
       PATH="$PATH:/workspace/leanclass/scripts"

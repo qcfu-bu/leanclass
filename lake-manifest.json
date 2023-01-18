@@ -26,12 +26,6 @@
     "name": "Cli",
     "inputRev?": "nightly"}},
   {"git":
-   {"url": "https://github.com/leanprover-community/mathlib4",
-    "subDir?": null,
-    "rev": "d1e6d8643531bd36f7c7bb612413decb7cb07ede",
-    "name": "mathlib",
-    "inputRev?": "d1e6d8643531bd36f7c7bb612413decb7cb07ede"}},
-  {"git":
    {"url": "https://github.com/gebner/quote4",
     "subDir?": null,
     "rev": "7ac99aa3fac487bec1d5860e751b99c7418298cf",
@@ -60,4 +54,10 @@
     "subDir?": null,
     "rev": "5770b609aeae209cb80ac74655ee8c750c12aabd",
     "name": "std",
-    "inputRev?": "main"}}]}
+    "inputRev?": "main"}},
+    {"git":
+     {"url": "https://github.com/leanprover-community/mathlib4",
+      "subDir?": null,
+      "rev": "d1e6d8643531bd36f7c7bb612413decb7cb07ede",
+      "name": "mathlib",
+      "inputRev?": "main"}}]}

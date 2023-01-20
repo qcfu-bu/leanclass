@@ -56,6 +56,12 @@
     "name": "Unicode",
     "inputRev?": "main"}},
   {"git":
+   {"url": "https://github.com/robertylewis/cs22-lean-autograder",
+    "subDir?": null,
+    "rev": "f3c4a3eb22cb9377c696085c4c09fcb7e6e7e9ba",
+    "name": "autograder",
+    "inputRev?": "f3c4a3eb22cb9377c696085c4c09fcb7e6e7e9ba"}},
+  {"git":
    {"url": "https://github.com/leanprover/std4",
     "subDir?": null,
     "rev": "5770b609aeae209cb80ac74655ee8c750c12aabd",

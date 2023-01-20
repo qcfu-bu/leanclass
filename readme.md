@@ -37,3 +37,31 @@ The link above will create a new workspace each time you click it.
 If at any point your workspace becomes unusable
 and you think you need a fresh start,
 you can click on the original link to get a new copy of the course workspace.
+
+## git: the fine print 
+
+This is a GitHub repository, 
+and your workspace will interact with our course materials using git.
+We do *not* expect you to have any experience or knowledge of git
+beyond having a GitHub account.
+If you do know how to use git and would like to use proper version control in your workspace,
+you are welcome to, but our course staff is not responsible for helping!
+We document the setup here for your reference.
+
+* We commit to files in the ??? directory being static:
+  once we push a file to that directory, it (almost certainly) will not change.
+  You can modify these files if you so choose
+  without worrying about merge conflicts.
+* Official course materials,
+  including lecture demos and homeworks,
+  will be pushed to the `master` branch of this repository.
+  You will have to pull these changes to your workspace.
+* The `pull-updates` script in your workspace
+  will `git stash` any uncommitted changes you have,
+  pull our updates,
+  and `git stash pop` your changes back.
+  If your changes conflict with ours, 
+  it will leave your project unmodified and print an error message.
+  This script assumes you have not made any commits of your own;
+  if you have, you're on your own!
+* The `reset-all` script resets all tracked files to the most recent commit.

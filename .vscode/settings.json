@@ -1,5 +1,8 @@
 { 
     "editor.minimap.enabled": false,
     "editor.insertSpaces": true,
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.semanticTokenColorCustomizations": {
+        "[Default Light+]": {"rules": {"other": "#335f66", "variable": "#7f197f"}}
+    }
 }

@@ -3,6 +3,7 @@ import Mathlib.Data.Nat.Prime
 import Mathlib.Tactic.LibrarySearch
 import Mathlib.Tactic.Linarith
 import Aesop
+import Mathlib.Data.Set.Basic
 
 /-
 
@@ -142,21 +143,31 @@ Here are some useful tactics:
   `intro h` will move the left hand side into a hypothesis,
   like saying "Assume _".
   When our goal is `∀ _, _`, `intro x` will create a new variable named `x`.
+
 * `cases'`: note the '. If `h` is a hypothesis proving an `and`,
   `cases' h` will split it into its components.
   If `h` is a hypothesis proving an `or`, `cases' h` will set up a
   proof by cases with two goals.
+  If `h` is a hypothesis proving an `exists`, `cases' h` will find a witness.
   Use the syntax `with` to name the new hypotheses. 
-  In general, `cases'` is something we do to *hypotheses* only.
-* `apply`: uses a rule from the library.
+  In general, `cases'` is something we do to *hypotheses* only,
+  to "extract" information from them.
+
+* `apply`: uses a rule from the library, or from your context.
   If a rule `r` says "to prove `b`, it suffices to prove `a`"
   and your goal is to prove `b`, then
   `apply r` will change your goal to proving `a`.
+
 * `exact`: when a hypothesis `h` matches the goal exactly, 
   `exact h` finishes that part of the proof.
+
 * `use`: when the goal is `∃ x, P(x)`,
   `use z` will change the goal to `P(z)`. 
   Essentially, this is providing a *witness* to prove the existential.
+
+* `contradiction`: if we have hypotheses `p` and `¬ p`, we can prove anything!
+
+* `linarith`: does "easy" arithmetic to prove inequalities and equalities.
 
 Try out a few examples. Some useful rules from the library:
 
@@ -165,8 +176,68 @@ Try out a few examples. Some useful rules from the library:
 #check Or.inl -- to prove `a ∨ b`, it suffices to prove `a`.
 #check Or.inr -- to prove `a ∨ b`, it suffices to prove `b`.
 
-theorem my_second_theorem : p ∨ q → q ∨ p := by
+theorem flip_ors : p ∨ q → q ∨ p := by
   sorry
 
 theorem from_above : ∀ x : ℕ, ∃ y : ℕ, x < y := by 
   sorry
+
+theorem other_order : ∃ x : ℕ, ∀ y : ℕ, x ≤ y := by 
+  sorry
+
+theorem two_imp 
+  (h1 : p → q) (h2 : q → ¬ r) : r → ¬ p := by
+  sorry
+  
+
+/- together: -/
+
+theorem quantifier_switch (P : ℕ → Prop) : 
+  (¬ ∃ x, P x) → (∀ x, ¬ P x) := by
+  sorry
+
+
+/- Some other cool things we can do: induction!
+
+Note: `n ∣ m` is defined to be `∃ k, n * k = m`. -/
+
+
+
+lemma div_by_5 : ∀ n : ℕ, 5 ∣ 11^n - 6 := by
+  intro n 
+  induction' n with k ih 
+  . simp 
+  . cases' ih with w hw
+    have : 11 ^ k = 5*w + 6 
+    . sorry
+    simp [Nat.pow_succ, this, add_mul]
+    use w*11
+    ring
+
+
+section 
+variable (P : ℕ → Prop)
+
+example : ∀ n : ℕ, P n := by 
+  intro n 
+  induction' n with k ih
+
+example : ∀ n : ℕ, P n := by 
+  intro n 
+  induction' n using Nat.strong_induction_on with k ih 
+
+example : ∀ n : ℕ, P n := by 
+  intro n 
+  induction' n using Nat.two_step_induction with k ih1 ih2 
+  
+
+
+end 
+
+/- sets! -/
+
+theorem sets_eq (s t u : Set ℕ) : (s ∪ t) ∩ u = (s ∩ u) ∪ (t ∩ u) := by 
+  ext x
+  constructor
+
+#check ℕ 

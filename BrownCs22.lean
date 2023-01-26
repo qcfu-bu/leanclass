@@ -53,3 +53,5 @@ lemma bar (n : ℕ) : (n ≥ 1) → odd (a n) := by
       _ = (2 : ℤ) ^ (n + 2) + 3 ^ (n + 2) := by ring
 
 -/
+
+

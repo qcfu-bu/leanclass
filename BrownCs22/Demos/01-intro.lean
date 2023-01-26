@@ -65,6 +65,7 @@ variable (p q r : Prop)
 #check p 
 #check p ∧ q 
 #check p ∧ q → r 
+#check p ∨ q ∨ p ∧ r ∧ ¬ (p ∧ q ∧ r) 
 
 /-
 
@@ -93,7 +94,7 @@ You may have guessed from the list, Lean lets us write first-order propositions
 
 -/
 
-#check ∀ x : ℕ, ∃ y : ℕ, x < y
+#check ∀ x : ℕ, ∃ y : ℕ, x < y ∧ 1 = 1
 #check ∀ x : ℕ, ∃ y : ℕ, Prime x ∧ x ∣ y
 
 
@@ -104,6 +105,10 @@ If you want to use things like `Prime`, you can try to guess with
 auto-complete: write `#check Pr` and hit ctrl-space.
 
 -/
+
+#check Prime
+
+def f (x : ℕ) : ℕ := x + 2
 
 
 /-
@@ -123,6 +128,10 @@ theorem my_first_theorem : p ∧ q → q ∧ p := by
   apply And.intro         -- In order to prove `q ∧ p`, we must prove `q` and then prove `p`.
   . exact hq              -- We can prove `q`, since we know `q`!
   . exact hp              -- And we can prove `p`, since we know `p`.
+
+theorem false_context : 1 = 2 → 1 = 2 := by
+  intro h12 
+  exact h12
 
 /-
 Some notes here:

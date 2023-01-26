@@ -7,9 +7,14 @@ This will be useful throughout the rest of your career at Brown CS.
 We strongly recommend picking a professional and identifiable username.
 For example, I'm [robertylewis](https://github.com/robertylewis).
 
+There are scattered reports that this might not work on some versions of Safari. 
+If you run into trouble, try it in Chrome or Firefox before reporting to us.
+
 * Click on [this link](https://gitpod.io/#https://github.com/robertylewis/leanclass).
   * This will send you to Gitpod.
     Log in with your GitHub account.
+  * If you are given a choice to open in your browser or locally,
+    choose the browser option.
 * It will take a minute, but eventually,
   you'll see a VSCode interface in your browser.
   You should see:

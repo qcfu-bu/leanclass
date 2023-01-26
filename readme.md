@@ -1,6 +1,6 @@
 # Directions for setting up GitPod
 
-Before following these directions,eeeeeexxdeqa
+Before following these directions,
 you will need to sign up for a [GitHub account](https://github.com/)
 if you don't have one already.
 This will be useful throughout the rest of your career at Brown CS.

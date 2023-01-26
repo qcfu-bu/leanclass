@@ -1,5 +1,3 @@
-set -x
-
 HC=$(git rev-parse HEAD)
 if [[ $(git stash -u) == *"No local changes to save"* ]]
 then 
